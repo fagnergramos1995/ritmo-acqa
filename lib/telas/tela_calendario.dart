@@ -140,6 +140,11 @@ class _TelaCalendarioState extends State<TelaCalendario> {
                 'Qual dia vamos organizar?',
                 style: TextStyle(color: Cores.textoSuave, fontSize: 15),
               ),
+              const SizedBox(height: 6),
+              const Text(
+                'RA: 1120997',
+                style: TextStyle(color: Cores.ciano, fontSize: 14, fontWeight: FontWeight.w800, letterSpacing: 1.2),
+              ),
             ],
           ),
         ),
