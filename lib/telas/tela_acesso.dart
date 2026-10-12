@@ -7,7 +7,6 @@ import '../servicos/auth_servico.dart';
 import '../tema/cores.dart';
 import 'tela_calendario.dart';
 
-/// Tela única de acesso: alterna entre "Entrar" e "Criar conta".
 class TelaAcesso extends StatefulWidget {
   const TelaAcesso({super.key});
 
@@ -78,8 +77,6 @@ class _TelaAcessoState extends State<TelaAcesso> {
     );
   }
 
-  // ---------- Validações ----------
-
   String? _validarNome(String? valor) {
     if (valor == null || valor.trim().length < 2) return 'Informe seu nome.';
     return null;
@@ -101,8 +98,6 @@ class _TelaAcessoState extends State<TelaAcesso> {
     if (valor != _senha.text) return 'As senhas não conferem.';
     return null;
   }
-
-  // ---------- Interface ----------
 
   @override
   Widget build(BuildContext context) {
@@ -234,7 +229,6 @@ class _TelaAcessoState extends State<TelaAcesso> {
     );
   }
 
-  /// Logotipo do app: ícone em gradiente + nome com efeito neon.
   Widget _marca() {
     return Column(
       children: [
@@ -271,7 +265,6 @@ class _TelaAcessoState extends State<TelaAcesso> {
     );
   }
 
-  /// Seletor "Entrar | Criar conta" com pílula animada.
   Widget _seletorModo() {
     return Container(
       height: 54,

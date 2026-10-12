@@ -25,8 +25,6 @@ class RitmoApp extends StatelessWidget {
   }
 }
 
-/// Decide a primeira tela: se já existe sessão salva, vai direto ao
-/// calendário; senão, abre a tela de login/cadastro.
 class Abertura extends StatefulWidget {
   const Abertura({super.key});
 

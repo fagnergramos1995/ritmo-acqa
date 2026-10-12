@@ -5,7 +5,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../modelos/tarefa.dart';
 import '../util/datas.dart';
 
-/// Guarda as tarefas de cada usuário no aparelho (shared_preferences).
 class TarefaServico {
   final String email;
 
@@ -31,14 +30,12 @@ class TarefaServico {
     );
   }
 
-  /// Tarefas de um dia, já ordenadas (pendentes primeiro, depois concluídas).
   Future<List<Tarefa>> doDia(DateTime dia) async {
     final chave = chaveData(dia);
     final todas = await _todas();
     return ordenarTarefas(todas.where((t) => t.dia == chave));
   }
 
-  /// Quantidade de pendentes e concluídas por dia, para o calendário.
   Future<Map<String, ResumoDia>> resumoPorDia() async {
     final resumo = <String, ResumoDia>{};
     for (final t in await _todas()) {
@@ -51,7 +48,6 @@ class TarefaServico {
     return resumo;
   }
 
-  /// Adiciona uma tarefa ao dia, sempre como NÃO concluída.
   Future<Tarefa> adicionar(DateTime dia, String titulo) async {
     final agora = DateTime.now();
     final nova = Tarefa(
@@ -72,7 +68,6 @@ class TarefaServico {
     await _salvar(todas);
   }
 
-  /// Devolve uma tarefa removida (botão "Desfazer").
   Future<void> restaurar(Tarefa tarefa) async {
     final todas = await _todas();
     if (todas.every((t) => t.id != tarefa.id)) {
@@ -81,7 +76,6 @@ class TarefaServico {
     }
   }
 
-  /// Marca como concluída ou volta para pendente.
   Future<void> alternarConclusao(String id) async {
     final todas = await _todas();
     final atualizadas = todas

@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 
 import '../tema/cores.dart';
 
-/// Cartão translúcido com desfoque do fundo (efeito "vidro fosco").
 class CartaoVidro extends StatelessWidget {
   final Widget child;
   final EdgeInsetsGeometry padding;
@@ -37,7 +36,6 @@ class CartaoVidro extends StatelessWidget {
   }
 }
 
-/// Botão redondo translúcido (voltar, sair, setas do calendário).
 class BotaoRedondo extends StatelessWidget {
   final IconData icone;
   final VoidCallback onPressed;

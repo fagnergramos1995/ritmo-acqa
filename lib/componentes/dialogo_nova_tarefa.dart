@@ -4,8 +4,6 @@ import '../tema/cores.dart';
 import '../util/datas.dart';
 import 'botao_gradiente.dart';
 
-/// Abre o diálogo de nova tarefa e devolve o título digitado
-/// (ou null, se o usuário cancelar).
 Future<String?> mostrarDialogoNovaTarefa(BuildContext context, DateTime dia) {
   return showDialog<String>(
     context: context,

@@ -10,7 +10,6 @@ import '../servicos/tarefa_servico.dart';
 import '../tema/cores.dart';
 import '../util/datas.dart';
 
-/// Lista de tarefas de um dia: adicionar, remover e marcar como concluída.
 class TelaTarefas extends StatefulWidget {
   final DateTime dia;
   final TarefaServico servico;
@@ -34,7 +33,6 @@ class _TelaTarefasState extends State<TelaTarefas> {
 
   @override
   void dispose() {
-    // Ao voltar para o calendário, some o aviso de "removida".
     _mensageiro?.hideCurrentSnackBar();
     super.dispose();
   }
@@ -56,7 +54,6 @@ class _TelaTarefasState extends State<TelaTarefas> {
   }
 
   Future<void> _alternar(Tarefa tarefa) async {
-    // Atualiza a tela na hora e reordena; depois grava no aparelho.
     setState(() {
       _tarefas = ordenarTarefas(
         _tarefas.map((t) => t.id == tarefa.id ? t.copyWith(concluida: !t.concluida) : t),
@@ -66,7 +63,6 @@ class _TelaTarefasState extends State<TelaTarefas> {
   }
 
   Future<void> _remover(Tarefa tarefa) async {
-    // Tira da lista imediatamente (exigência do Dismissible).
     setState(() => _tarefas.removeWhere((t) => t.id == tarefa.id));
     await widget.servico.remover(tarefa.id);
     if (!mounted) return;
@@ -89,8 +85,6 @@ class _TelaTarefasState extends State<TelaTarefas> {
         ),
       ),
     );
-    // Fecha o aviso sozinho após 4 s (nas versões novas do Flutter,
-    // avisos com botão de ação não somem automaticamente).
     Future.delayed(const Duration(seconds: 4), aviso.close);
   }
 

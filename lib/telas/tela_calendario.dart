@@ -12,7 +12,6 @@ import '../util/datas.dart';
 import 'tela_acesso.dart';
 import 'tela_tarefas.dart';
 
-/// Tela do calendário: escolhe o dia e mostra um resumo das tarefas dele.
 class TelaCalendario extends StatefulWidget {
   final Usuario usuario;
 
@@ -46,7 +45,6 @@ class _TelaCalendarioState extends State<TelaCalendario> {
   }
 
   void _selecionar(DateTime dia) {
-    // Tocar de novo no dia já selecionado abre a lista direto.
     if (mesmoDia(dia, _selecionado)) {
       _abrirLista();
       return;
@@ -71,7 +69,6 @@ class _TelaCalendarioState extends State<TelaCalendario> {
         builder: (_) => TelaTarefas(dia: _selecionado, servico: _servico),
       ),
     );
-    // Ao voltar, atualiza os pontinhos do calendário.
     _carregarResumo();
   }
 

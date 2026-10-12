@@ -5,12 +5,7 @@ import '../tema/cores.dart';
 import '../util/datas.dart';
 import 'cartao_vidro.dart';
 
-/// Calendário mensal feito do zero (sem pacotes externos).
-///
-/// Cada dia mostra pontinhos coloridos: rosa quando há tarefas
-/// pendentes e verde-limão quando há tarefas concluídas.
 class CalendarioMes extends StatelessWidget {
-  /// Qualquer data dentro do mês exibido.
   final DateTime mes;
   final DateTime selecionado;
   final Map<String, ResumoDia> resumo;
@@ -30,7 +25,6 @@ class CalendarioMes extends StatelessWidget {
   Widget build(BuildContext context) {
     final primeiroDia = DateTime(mes.year, mes.month, 1);
     final diasNoMes = DateTime(mes.year, mes.month + 1, 0).day;
-    // DateTime.weekday: segunda = 1 ... domingo = 7. A grade começa no domingo.
     final deslocamento = primeiroDia.weekday % 7;
     final semanas = ((deslocamento + diasNoMes) / 7).ceil();
     final hoje = DateTime.now();
@@ -93,8 +87,6 @@ class CalendarioMes extends StatelessWidget {
               for (var d = 0; d < 7; d++)
                 Expanded(
                   child: _celula(
-                    // O construtor de DateTime ajusta dias "fora" do mês
-                    // (0, -1, 32...) para o mês anterior ou seguinte.
                     DateTime(mes.year, mes.month, 1 - deslocamento + semana * 7 + d),
                     hoje,
                   ),
@@ -142,7 +134,6 @@ class CalendarioMes extends StatelessWidget {
                 ? [BoxShadow(color: Cores.magenta.withAlpha(110), blurRadius: 16)]
                 : null,
           ),
-          // FittedBox evita estouro de layout em telas muito estreitas.
           child: FittedBox(
             fit: BoxFit.scaleDown,
             child: Column(

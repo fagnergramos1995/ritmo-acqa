@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../tema/cores.dart';
 
-/// Botão principal com gradiente e brilho colorido por baixo.
 class BotaoGradiente extends StatelessWidget {
   final String rotulo;
   final VoidCallback? onPressed;

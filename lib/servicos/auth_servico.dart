@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
-/// Usuário cadastrado no aparelho.
 class Usuario {
   final String nome;
   final String email;
@@ -12,7 +11,6 @@ class Usuario {
   String get primeiroNome => nome.trim().split(' ').first;
 }
 
-/// Erro de cadastro/login com mensagem pronta para exibir na tela.
 class AuthErro implements Exception {
   final String mensagem;
   const AuthErro(this.mensagem);
@@ -21,11 +19,6 @@ class AuthErro implements Exception {
   String toString() => mensagem;
 }
 
-/// Cadastro e login guardados localmente com shared_preferences.
-///
-/// O enunciado dispensa o Firebase; esta classe faz o papel que o
-/// Firebase Authentication faria, e poderia ser trocada por ele sem
-/// mudar as telas.
 class AuthServico {
   static const _chaveUsuarios = 'ritmo_usuarios';
   static const _chaveSessao = 'ritmo_sessao';
@@ -36,9 +29,6 @@ class AuthServico {
     return Map<String, dynamic>.from(jsonDecode(bruto) as Map);
   }
 
-  /// Resumo simples da senha (FNV-1a de 32 bits), para não gravá-la em
-  /// texto puro. Serve para fins didáticos; em produção usaríamos o
-  /// Firebase Auth ou um algoritmo próprio para senhas.
   String _resumoSenha(String email, String senha) {
     var hash = 0x811c9dc5;
     for (final byte in utf8.encode('$email::$senha')) {
@@ -88,7 +78,6 @@ class AuthServico {
     return Usuario(nome: mapa['nome'] as String, email: chave);
   }
 
-  /// Usuário que já estava logado ao abrir o app (ou null).
   Future<Usuario?> usuarioLogado() async {
     final prefs = await SharedPreferences.getInstance();
     final chave = prefs.getString(_chaveSessao);

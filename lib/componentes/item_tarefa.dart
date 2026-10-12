@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import '../modelos/tarefa.dart';
 import '../tema/cores.dart';
 
-/// Linha de uma tarefa: marcador de conclusão, título e botão de remover.
-/// Também pode ser removida arrastando para a esquerda.
 class ItemTarefa extends StatelessWidget {
   final Tarefa tarefa;
   final VoidCallback aoAlternar;

@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 
 import '../tema/cores.dart';
 
-/// Fundo animado com "manchas" de luz que se movem devagar,
-/// lembrando uma aurora. Usado em todas as telas.
 class FundoAurora extends StatefulWidget {
   final Widget child;
 

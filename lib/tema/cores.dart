@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-/// Paleta "Aurora": fundo noturno com cores neon vibrantes.
 class Cores {
   Cores._();
 
@@ -18,21 +17,18 @@ class Cores {
   static const Color vidroBorda = Color(0x33FFFFFF);
   static const Color perigo = Color(0xFFFF4D6D);
 
-  /// Gradiente quente: botões principais e dia selecionado.
   static const LinearGradient quente = LinearGradient(
     colors: [magenta, laranja],
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
   );
 
-  /// Gradiente frio: cabeçalhos e destaques secundários.
   static const LinearGradient frio = LinearGradient(
     colors: [violeta, ciano],
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
   );
 
-  /// Gradiente de conclusão: tarefas feitas.
   static const LinearGradient feito = LinearGradient(
     colors: [lima, ciano],
     begin: Alignment.topLeft,
@@ -40,7 +36,6 @@ class Cores {
   );
 }
 
-/// Tema global do aplicativo.
 ThemeData temaAurora() {
   final base = ThemeData(
     useMaterial3: true,
@@ -59,7 +54,6 @@ ThemeData temaAurora() {
   );
 }
 
-/// Decoração padrão dos campos de texto (estilo "vidro").
 InputDecoration decoracaoCampo(String rotulo, IconData icone, {Widget? sufixo}) {
   OutlineInputBorder borda(Color cor, [double largura = 1.2]) => OutlineInputBorder(
         borderRadius: BorderRadius.circular(18),

@@ -1,11 +1,8 @@
 import '../util/datas.dart';
 
-/// Uma tarefa do dia. Toda tarefa nasce como não concluída.
 class Tarefa {
   final String id;
   final String titulo;
-
-  /// Dia da tarefa no formato "aaaa-mm-dd" (ver [chaveData]).
   final String dia;
   final bool concluida;
   final DateTime criadaEm;
@@ -43,8 +40,6 @@ class Tarefa {
       );
 }
 
-/// Regra pedida no enunciado: primeiro as pendentes, depois as concluídas,
-/// e dentro de cada grupo em ordem alfabética (ignorando maiúsculas e acentos).
 List<Tarefa> ordenarTarefas(Iterable<Tarefa> tarefas) {
   final lista = tarefas.toList();
   lista.sort((a, b) {
@@ -58,7 +53,6 @@ List<Tarefa> ordenarTarefas(Iterable<Tarefa> tarefas) {
   return lista;
 }
 
-/// Contagem de tarefas de um dia, usada nos pontinhos do calendário.
 class ResumoDia {
   final int pendentes;
   final int concluidas;
